@@ -16,10 +16,6 @@ public class SimpleGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null); // absolute positioning
 
-        // text field
-//        JTextField textField = new JTextField();
-//        textField.setBounds(20, 20, 150, 25);
-
         // buttons
         JButton button0 = new JButton("0");
         button0.setBounds(70, 200, 50, 40);
@@ -51,6 +47,9 @@ public class SimpleGUI {
         JButton buttonDelete = new JButton("C");
         buttonDelete.setBounds(170, 80, 50, 40);
 
+        JButton buttonDeleteOne = new JButton("AC");
+        buttonDeleteOne.setBounds(220, 80, 50, 40);
+
 
 
 
@@ -76,6 +75,17 @@ public class SimpleGUI {
                 label.setText(currentText + digit);
             }
         };
+        buttonDeleteOne.addActionListener(e -> {
+            String currentText = label.getText();
+            if (currentText.length() > 1){
+                String newText = currentText.substring(0, currentText.length() - 1); //permet de retirer un chiffre (prends en gros la totalite du texte et enleve le dernier)
+                label.setText(newText);
+            }
+
+            else if (currentText.length() == 1) {
+                label.setText("0");
+            }
+        });
 
         //ajout evenement pour remettre le compteur à zéro
         buttonDelete.addActionListener(e -> {
@@ -96,7 +106,7 @@ public class SimpleGUI {
         button9.addActionListener(numberListener);
 
 
-
+        //ajout des boutons sur l'application
         frame.add(button0);
         frame.add(button1);
         frame.add(button2);
@@ -108,6 +118,7 @@ public class SimpleGUI {
         frame.add(button8);
         frame.add(button9);
         frame.add(buttonDelete);
+        frame.add(buttonDeleteOne);
         frame.add(label);
         frame.setVisible(true);
     }
