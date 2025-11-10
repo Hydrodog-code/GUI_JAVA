@@ -24,7 +24,7 @@ public class SimpleGUI {
         JButton button0 = new JButton("0");
         button0.setBounds(70, 200, 50, 40);
 
-        
+
         JButton button1 = new JButton("1");
         button1.setBounds(20, 160, 50, 40);
         JButton button2 = new JButton("2");
@@ -47,6 +47,11 @@ public class SimpleGUI {
         button8.setBounds(70, 80, 50, 40);
         JButton button9 = new JButton("9");
         button9.setBounds(120, 80, 50, 40);
+
+        JButton buttonDelete = new JButton("C");
+        buttonDelete.setBounds(170, 80, 50, 40);
+
+
 
 
         // label
@@ -72,6 +77,11 @@ public class SimpleGUI {
             }
         };
 
+        //ajout evenement pour remettre le compteur à zéro
+        buttonDelete.addActionListener(e -> {
+            label.setText("0");
+        });
+
         //ajout des actions qui permet d'ecouter le boutons et d'afficher le chiffre inscrit dessus
 
         button0.addActionListener(numberListener);
@@ -85,6 +95,8 @@ public class SimpleGUI {
         button8.addActionListener(numberListener);
         button9.addActionListener(numberListener);
 
+
+
         frame.add(button0);
         frame.add(button1);
         frame.add(button2);
@@ -95,6 +107,7 @@ public class SimpleGUI {
         frame.add(button7);
         frame.add(button8);
         frame.add(button9);
+        frame.add(buttonDelete);
         frame.add(label);
         frame.setVisible(true);
     }
