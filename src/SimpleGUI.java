@@ -50,6 +50,19 @@ public class SimpleGUI {
         JButton buttonDeleteOne = new JButton("AC");
         buttonDeleteOne.setBounds(220, 80, 50, 40);
 
+        JButton buttonEqual = new JButton("=");
+        buttonEqual.setBounds(170, 200, 50, 40);
+
+        JButton buttonAdd = new JButton("+");
+        buttonAdd.setBounds(170, 200, 50, 40);
+
+        JButton buttonMinus = new JButton("-");
+        buttonMinus.setBounds(170, 200, 50, 40);
+
+        JButton buttonMultiply = new JButton("*");
+        buttonMultiply.setBounds(170, 200, 50, 40);
+
+
 
 
 
@@ -75,6 +88,7 @@ public class SimpleGUI {
                 label.setText(currentText + digit);
             }
         };
+
         buttonDeleteOne.addActionListener(e -> {
             String currentText = label.getText();
             if (currentText.length() > 1){
@@ -86,6 +100,27 @@ public class SimpleGUI {
                 label.setText("0");
             }
         });
+//        buttonAdd.addActionListener(e -> {
+//            String currentText = label.getText();
+//            int number1 = Integer.parseInt(currentText);
+//            label.setText("0");
+//            if (buttonEqual.getAction().isEnabled()){
+//                int number2 = Integer.parseInt(currentText);
+//                int numberTotal = number1 + number2;
+//                label.setText(String.valueOf(numberTotal));
+//            }
+
+//        buttonEqual.addActionListener(e -> {
+//            String currentText = label.getText();
+//            if (currentText.length() > 1){
+//                String newText = currentText.substring(0, currentText.length() - 1); //permet de retirer un chiffre (prends en gros la totalite du texte et enleve le dernier)
+//                label.setText(newText);
+//            }
+//
+//            else if (currentText.length() == 1) {
+//                label.setText("0");
+//            }
+//        });
 
         //ajout evenement pour remettre le compteur à zéro
         buttonDelete.addActionListener(e -> {
@@ -119,6 +154,7 @@ public class SimpleGUI {
         frame.add(button9);
         frame.add(buttonDelete);
         frame.add(buttonDeleteOne);
+        frame.add(buttonEqual);
         frame.add(label);
         frame.setVisible(true);
     }
