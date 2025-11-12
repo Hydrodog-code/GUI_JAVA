@@ -36,8 +36,9 @@ public class EqualButton extends JButton{
                 if (operation.isEmpty()) {
                     resultat = secondNumber; // Le résultat est juste le nombre tapé
                 } else {
-                    // Ajouter ici les conditions pour "-", "*", "/", etc.
-                    // Si un opérateur non géré est présent, gérer l'erreur ou l'ignorer
+                    if (operation.equals("/")) {
+                        resultat = firstNumber / secondNumber;
+                    }
                 }
             }
             label.setText(String.valueOf(resultat));

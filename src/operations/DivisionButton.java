@@ -2,20 +2,20 @@ package operations;
 
 import javax.swing.*;
 
+import static operations.AddButton.firstNumber;
+import static operations.AddButton.operation;
+import static operations.AddButton.startNewNumber;
+
 public class DivisionButton extends JButton {
 
-    protected static double firstNumber = 0;
-    protected static String operation = "";
-    protected static boolean startNewNumber = true;
-
     // Déclarer le JLabel pour l'affichage 
-    private static JLabel label;
+    static JLabel label;
 
     // Constructeur pour créer le bouton et lui donner accès au JLabel
     public DivisionButton(String text, JLabel displayLabel) {
-        super(text); // Crée le bouton avec le texte "+"
-        AddButton.label = displayLabel;
-        setupActionListener(); // Appelle la méthode pour ajouter l'écouteur
+        super(text);
+        DivisionButton.label = displayLabel;
+        setupActionListener();
     }
 
     private void setupActionListener() {
@@ -30,7 +30,7 @@ public class DivisionButton extends JButton {
                 return;
             }
 
-            operation = "+";
+            operation = "/";
 
             label.setText("0");
 

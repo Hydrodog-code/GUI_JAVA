@@ -1,4 +1,3 @@
-// Fichier: AddButton.java (ou le fichier qui contient la logique des boutons)
 package operations;
 
 import javax.swing.*;

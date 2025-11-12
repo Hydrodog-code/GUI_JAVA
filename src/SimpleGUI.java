@@ -1,4 +1,5 @@
 import operations.AddButton;
+import operations.DivisionButton;
 import operations.EqualButton;
 
 import javax.swing.*;
@@ -44,6 +45,8 @@ public class SimpleGUI {
         JButton buttonMultiply = new JButton("*");
         buttonMultiply.setFont(myFont);
         buttonMultiply.setBounds(240, 120, 50, 40);
+
+
 
 
 
@@ -106,6 +109,9 @@ public class SimpleGUI {
 
         //ajout des actions qui permet d'ecouter le boutons et d'afficher le chiffre inscrit dessus
 
+        DivisionButton buttonDivision = new DivisionButton("/",label);
+        buttonDivision.setFont(myFont);
+        buttonDivision.setBounds(240, 160, 50, 40);
 
         // premier [] on cherche l'index, dexuieme [] sert de l'element
         int[][] bounds = {
@@ -137,6 +143,7 @@ public class SimpleGUI {
         }
 
         //ajout des boutons sur l'application
+        frame.add(buttonDivision);
         frame.add(buttonDelete);
         frame.add(buttonDeleteOne);
         frame.add(buttonEqual);
