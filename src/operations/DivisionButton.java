@@ -1,19 +1,18 @@
-// Fichier: AddButton.java (ou le fichier qui contient la logique des boutons)
 package operations;
 
 import javax.swing.*;
 
-public class AddButton extends JButton {
+public class DivisionButton extends JButton {
 
     protected static double firstNumber = 0;
     protected static String operation = "";
     protected static boolean startNewNumber = true;
 
     // Déclarer le JLabel pour l'affichage 
-    static JLabel label;
+    private static JLabel label;
 
     // Constructeur pour créer le bouton et lui donner accès au JLabel
-    public AddButton(String text, JLabel displayLabel) {
+    public DivisionButton(String text, JLabel displayLabel) {
         super(text); // Crée le bouton avec le texte "+"
         AddButton.label = displayLabel;
         setupActionListener(); // Appelle la méthode pour ajouter l'écouteur

@@ -16,7 +16,7 @@ public class SimpleGUI {
     }
 
     private static void createAndShowGUI() {
-
+        JButton[] button = new JButton[10];
         Font myFont = new Font("Arial", Font.BOLD, 16);
         Border blackline = BorderFactory.createLineBorder(Color.black);
         // Create a new window (JFrame)
@@ -26,42 +26,7 @@ public class SimpleGUI {
         frame.setLayout(null); // absolute positioning
 
         // buttons
-        JButton button0 = new JButton("0");
-        button0.setFont(myFont);
-        button0.setBounds(70, 200, 50, 40);
 
-
-        JButton button1 = new JButton("1");
-        button1.setFont(myFont);
-        button1.setBounds(20, 160, 50, 40);
-        JButton button2 = new JButton("2");
-        button2.setFont(myFont);
-        button2.setBounds(70, 160, 50, 40);
-        JButton button3 = new JButton("3");
-        button3.setFont(myFont);
-        button3.setBounds(120, 160, 50, 40);
-
-
-        JButton button4 = new JButton("4");
-        button4.setFont(myFont);
-        button4.setBounds(20, 120, 50, 40);
-        JButton button5 = new JButton("5");
-        button5.setFont(myFont);
-        button5.setBounds(70,120, 50, 40);
-        JButton button6 = new JButton("6");
-        button6.setFont(myFont);
-        button6.setBounds(120, 120, 50, 40);
-
-
-        JButton button7 = new JButton("7");
-        button7.setFont(myFont);
-        button7.setBounds(20, 80, 50, 40);
-        JButton button8 = new JButton("8");
-        button8.setFont(myFont);
-        button8.setBounds(70, 80, 50, 40);
-        JButton button9 = new JButton("9");
-        button9.setFont(myFont);
-        button9.setBounds(120, 80, 50, 40);
 
 
         JButton buttonDelete = new JButton("C");
@@ -90,6 +55,7 @@ public class SimpleGUI {
         label.setText("0");
         label.setBorder(blackline);
         label.setFont(myFont);
+
         ActionListener numberListener = e -> {
             // Récupère le bouton cliqué
             JButton source = (JButton) e.getSource();
@@ -140,29 +106,37 @@ public class SimpleGUI {
 
         //ajout des actions qui permet d'ecouter le boutons et d'afficher le chiffre inscrit dessus
 
-        button0.addActionListener(numberListener);
-        button1.addActionListener(numberListener);
-        button2.addActionListener(numberListener);
-        button3.addActionListener(numberListener);
-        button4.addActionListener(numberListener);
-        button5.addActionListener(numberListener);
-        button6.addActionListener(numberListener);
-        button7.addActionListener(numberListener);
-        button8.addActionListener(numberListener);
-        button9.addActionListener(numberListener);
 
+        // premier [] on cherche l'index, dexuieme [] sert de l'element
+        int[][] bounds = {
+                {70, 200, 50, 40},
+                {20, 160, 50, 40},
+                {70, 160, 50, 40},
+                {120, 160, 50, 40},
+                {20, 120, 50, 40},
+                {70, 120, 50, 40},
+                {120, 120, 50, 40},
+                {20, 80, 50, 40},
+                {70, 80, 50, 40},
+                {120, 80, 50, 40}
+        };
+
+        for (int i = 0; i < 10 ; i++) {
+            // 1. INITIALISATION: Crée l'objet JButton
+            button[i] = new JButton(String.valueOf(i));
+
+            // 2. POSITIONNEMENT
+            button[i].setBounds(bounds[i][0], bounds[i][1], bounds[i][2], bounds[i][3]);
+            button[i].setFont(myFont);
+
+            // 3. ECOUTEUR
+            button[i].addActionListener(numberListener);
+
+            // 4. AJOUT AU FRAME
+            frame.add(button[i]);
+        }
 
         //ajout des boutons sur l'application
-        frame.add(button0);
-        frame.add(button1);
-        frame.add(button2);
-        frame.add(button3);
-        frame.add(button4);
-        frame.add(button5);
-        frame.add(button6);
-        frame.add(button7);
-        frame.add(button8);
-        frame.add(button9);
         frame.add(buttonDelete);
         frame.add(buttonDeleteOne);
         frame.add(buttonEqual);
