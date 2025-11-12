@@ -1,11 +1,8 @@
-import operations.AddButton;
-import operations.DivisionButton;
-import operations.EqualButton;
+import operations.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
@@ -26,9 +23,6 @@ public class SimpleGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null); // absolute positioning
 
-        // buttons
-
-
 
         JButton buttonDelete = new JButton("C");
         buttonDelete.setFont(myFont);
@@ -37,19 +31,6 @@ public class SimpleGUI {
         JButton buttonDeleteOne = new JButton("AC");
         buttonDeleteOne.setFont(myFont);
         buttonDeleteOne.setBounds(240, 80, 60, 40);
-
-        JButton buttonMinus = new JButton("-");
-        buttonMinus.setFont(myFont);
-        buttonMinus.setBounds(190, 160, 50, 40);
-
-        JButton buttonMultiply = new JButton("*");
-        buttonMultiply.setFont(myFont);
-        buttonMultiply.setBounds(240, 120, 50, 40);
-
-
-
-
-
 
 
         // label
@@ -78,17 +59,6 @@ public class SimpleGUI {
             }
         };
 
-        //button add
-        AddButton buttonAdd = new AddButton("+",label);
-        buttonAdd.setFont(myFont);
-        buttonAdd.setBounds(190, 120, 50, 40);
-
-
-        //boutton egal
-        EqualButton buttonEqual = new EqualButton("=",label);
-        buttonEqual.setFont(myFont);
-        buttonEqual.setBounds(190, 200, 50, 40);
-
         //function to delete only one digit
         buttonDeleteOne.addActionListener(e -> {
             String currentText = label.getText();
@@ -107,12 +77,31 @@ public class SimpleGUI {
             label.setText("0");
         });
 
-        //ajout des actions qui permet d'ecouter le boutons et d'afficher le chiffre inscrit dessus
+
+        //button add
+        AddButton buttonAdd = new AddButton("+",label);
+        buttonAdd.setFont(myFont);
+        buttonAdd.setBounds(190, 120, 50, 40);
+
+        //boutton egal
+        EqualButton buttonEqual = new EqualButton("=",label);
+        buttonEqual.setFont(myFont);
+        buttonEqual.setBounds(190, 200, 50, 40);
 
         DivisionButton buttonDivision = new DivisionButton("/",label);
         buttonDivision.setFont(myFont);
         buttonDivision.setBounds(240, 160, 50, 40);
 
+        MinusButton buttonMinus = new MinusButton("-",label);
+        buttonMinus.setFont(myFont);
+        buttonMinus.setBounds(190, 160, 50, 40);
+
+        MultiplyButton buttonMultiply = new MultiplyButton("*",label);
+        buttonMultiply.setFont(myFont);
+        buttonMultiply.setBounds(240, 120, 50, 40);
+
+
+        //ajout des actions qui permet d'ecouter le boutons et d'afficher le chiffre inscrit dessus
         // premier [] on cherche l'index, dexuieme [] sert de l'element
         int[][] bounds = {
                 {70, 200, 50, 40},

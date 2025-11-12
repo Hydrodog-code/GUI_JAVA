@@ -38,6 +38,10 @@ public class EqualButton extends JButton{
                 } else {
                     if (operation.equals("/")) {
                         resultat = firstNumber / secondNumber;
+                    }if (operation.equals("*")) {
+                        resultat = firstNumber * secondNumber;
+                    }if (operation.equals("-")) {
+                        resultat = firstNumber - secondNumber;
                     }
                 }
             }
