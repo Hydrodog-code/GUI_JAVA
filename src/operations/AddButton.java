@@ -1,12 +1,13 @@
 // Fichier: AddButton.java (ou le fichier qui contient la logique des boutons)
+package operations;
 
 import javax.swing.*;
 
 public class AddButton extends JButton {
 
-    private static double firstNumber = 0;
-    private static String operation = "";
-    private static boolean startNewNumber = true;
+    protected static double firstNumber = 0;
+    protected static String operation = "";
+    protected static boolean startNewNumber = true;
 
     // Déclarer le JLabel pour l'affichage 
     private static JLabel label;
@@ -21,7 +22,6 @@ public class AddButton extends JButton {
     private void setupActionListener() {
         // Le listener utilise les champs statiques ci-dessus
         this.addActionListener(e -> {
-            // 1. Lire et stocker le nombre actuellement affiché
             String currentText = label.getText();
             try {
                 firstNumber = Double.parseDouble(currentText); // Utiliser Double pour les décimales
